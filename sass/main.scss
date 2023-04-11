@@ -1,0 +1,307 @@
+$black: #000;
+$white: #fff;
+$grey: #A0A0A0;
+$dark_grey: #444444;
+$font: "League Spartan", sans-serif;
+
+/* Breakpoints */
+$bp_md: 920px;
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "League Spartan", sans-serif;
+    min-height: 100vh;
+}
+
+nav{
+    display: flex;
+    gap: 57px;
+    left: 64px;
+    position: absolute;
+    top: 48px;
+
+    &.show{
+        @media only screen and (max-width: $bp_md) {
+            .menu{
+                background: url("../images/icon-close.svg") center / cover no-repeat;
+                height: 15.56px;
+                position: fixed;
+                top: 45px;
+                width: 15.56px;
+            }
+
+            ul{
+                align-items: center;
+                background: $white;
+                display: flex;
+                height: 110px;
+                justify-content: flex-end;
+                padding-right: 20px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 10;
+
+                li{
+                    &:hover{
+                        &::before{
+                            background: $black;
+                        }
+                    }
+                    a{
+                        color: $black;
+                    }
+                }
+            }
+
+            &::before{
+                background-color: rgba(0, 0, 0, 0.5);
+                content: "";
+                height: 100vh;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 5;
+            }
+        }
+    }
+
+    @media only screen and (max-width: $bp_md) {
+        width: 100%;
+        left: 0;
+    }
+    
+    .logo{
+        background-image: url("../images/logo.svg");
+        display: block;
+        height: 13.06px;
+        width: 61.72px;
+
+        @media only screen and (max-width: $bp_md) {
+            margin: 0 auto;
+        }
+    }
+
+    .menu{
+        display: none;
+        
+        @media only screen and (max-width: $bp_md) {
+            background: url("../images/icon-hamburger.svg") center / cover no-repeat;
+            display: block;
+            height: 14px;
+            left: 24px;
+            position: absolute;            
+            top: 0;
+            width: 20px;
+            z-index: 20;
+        }
+    }
+
+    ul{
+        display: flex;
+        gap: 31px;
+        list-style-type: none;
+
+        @media only screen and (max-width: $bp_md) {
+            display: none;
+        }
+
+        li{
+            position: relative;
+            &:hover{
+                &::before{
+                    background: $white;
+                    bottom: -10px;
+                    content: "";
+                    height: 2px;
+                    left: 0;
+                    left: 50%;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    width: 16px;
+                }
+            }
+            a{
+                color: $white;
+                font: 600 16px/14.72px $font;
+                letter-spacing: -.67px;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+main{
+    display: flex;
+    height: 66.75vh;
+    min-height: 534px;
+
+    @media only screen and (max-width: $bp_md) {
+        flex-direction: column;
+        height: unset;
+    }
+
+    .main_img{
+        object-fit: cover;
+        width: 60%;
+        @media only screen and (max-width: $bp_md) {
+            height: 360px;
+            width: 100%;
+        }
+    }
+
+    .description{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+        @media only screen and (max-width: $bp_md) {
+            flex: unset;
+            padding: 60px 38px;
+        }
+        h1{
+            font: 600 48px/44.16px $font;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            max-width: 400px;
+            @media only screen and (max-width: $bp_md){
+                font: 600 40px/36.8px $font;
+                letter-spacing: -1.67px;
+                width: 100%;
+            }
+        }
+        p{
+            color: $grey;
+            font: 500 16px/22px $font;
+            letter-spacing: -.33px;
+            margin-bottom: 25px;
+            max-width: 400px;
+            @media only screen and (max-width: $bp_md){
+                width: 100%;
+            }
+        }
+        a{
+            align-items: center;
+            color: $black;
+            display: flex;
+            font: 500 15px/16px $font;
+            gap: 15px;
+            letter-spacing: 12.5px;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:hover{
+                opacity: .5;
+            }
+
+            span{
+                background: url("../images/icon-arrow.svg") center / cover no-repeat;
+                display: block;
+                height: 12px;
+                width: 40px;
+            }
+        }
+
+        .btn_container{
+            background: $black;
+            bottom: 0;
+            display: flex;
+            height: 80px;
+            left: 0;
+            position: absolute;
+            width: 160px;
+
+            @media only screen and (max-width: $bp_md){
+                bottom: initial;
+                height: 56px;
+                left: initial;
+                right: 0;
+                top: -56px;
+                width: 112px;
+            }
+
+            button{
+                background-color: $black;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 12px;
+                border: none;
+                cursor: pointer;
+                flex: 1;
+                outline: none;
+
+                &:hover{
+                    background-color: $dark_grey;
+                }
+
+                &:first-of-type{
+                    background-image: url("../images/icon-angle-left.svg");
+                }
+                &:last-of-type{
+                    background-image: url("../images/icon-angle-right.svg");
+                }
+            }
+        }
+    }
+}
+
+footer{
+    display: flex;
+    height: 33.25vh;
+    min-height: 268px;
+    
+    @media only screen and (max-width: $bp_md){
+        flex-direction: column;
+        height: unset;
+    }
+
+    img{
+        flex: 1;
+        object-fit: cover;
+        width: 30%;
+        @media only screen and (max-width: $bp_md){
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .about{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex: 1.5;
+        justify-content: center;
+        padding: 20px 48px;
+
+        @media only screen and (max-width: $bp_md){
+            padding: 50px 38px;
+        }
+        h2{
+            align-self: flex-start;
+            font: 700 16px/22px $font;
+            letter-spacing: 6.67px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        p{
+            color: $grey;
+            font: 500 16px/22px $font;
+            letter-spacing: -.33px;
+        }
+    }
+}
