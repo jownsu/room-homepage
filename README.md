@@ -19,7 +19,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://room-homepage-one-jet.vercel.app/)
+- Live Site URL: [room-homepage](https://room-homepage-one-jet.vercel.app/)
 
 ### Built with
 
